@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next';
-import { Instrument_Serif, Geist, Geist_Mono } from 'next/font/google';
+import { Instrument_Serif, Inter } from 'next/font/google';
 import { Toaster } from 'react-hot-toast';
 import { siteConfig } from '@/lib/site-config';
 import { Navbar } from '@/components/layout/navbar';
@@ -7,7 +7,7 @@ import { Footer } from '@/components/layout/footer';
 import { FloatingChatbot } from '@/components/chatbot/floating-chatbot';
 import './globals.css';
 
-const sans = Geist({
+const sans = Inter({
   subsets: ['latin'],
   variable: '--font-sans',
   display: 'swap',
@@ -20,7 +20,8 @@ const display = Instrument_Serif({
   display: 'swap',
 });
 
-const mono = Geist_Mono({
+// Replace Geist_Mono with Inter for mono as well
+const mono = Inter({
   subsets: ['latin'],
   variable: '--font-mono',
   display: 'swap',
