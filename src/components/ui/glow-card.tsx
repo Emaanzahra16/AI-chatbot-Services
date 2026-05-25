@@ -1,11 +1,14 @@
 'use client';
 
 import { cn } from '@/lib/utils';
-import { motion, type HTMLMotionProps } from 'framer-motion';
+import { motion, MotionProps } from 'framer-motion';
+import { ReactNode } from 'react';
 
-interface GlowCardProps extends HTMLMotionProps<'div'> {
+interface GlowCardProps extends MotionProps {
+  className?: string;
   gradient?: string;
   hover?: boolean;
+  children: ReactNode;
 }
 
 export function GlowCard({
@@ -51,7 +54,9 @@ export function GlowCard({
         />
       )}
       {/* content */}
-      <div className="relative h-full rounded-2xl bg-ink-900/60 backdrop-blur-xl">{children}</div>
+      <div className="relative h-full rounded-2xl bg-ink-900/60 backdrop-blur-xl">
+        {children}
+      </div>
     </motion.div>
   );
 }
