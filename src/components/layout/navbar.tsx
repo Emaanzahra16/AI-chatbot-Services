@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ArrowUpRight } from 'lucide-react';
 import { navigation } from '@/lib/site-config';
 import { Logo } from '@/components/ui/logo';
+import { LanguageSwitcher } from '@/components/LanguageSwitcher';
 import { cn } from '@/lib/utils';
 
 export function Navbar() {
@@ -89,6 +90,10 @@ export function Navbar() {
                 Get started
                 <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </Link>
+              
+              {/* Language Switcher - Added here */}
+              <LanguageSwitcher />
+              
               <button
                 aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
                 onClick={() => setMobileOpen((s) => !s)}
@@ -149,6 +154,11 @@ export function Navbar() {
                 >
                   Get started
                 </Link>
+              </div>
+              
+              {/* Language Switcher for mobile */}
+              <div className="mt-4 flex justify-center">
+                <LanguageSwitcher />
               </div>
             </motion.div>
           </motion.div>

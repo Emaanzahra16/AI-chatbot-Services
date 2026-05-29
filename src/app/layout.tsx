@@ -5,6 +5,7 @@ import { siteConfig } from '@/lib/site-config';
 import { Navbar } from '@/components/layout/navbar';
 import { Footer } from '@/components/layout/footer';
 import { FloatingChatbot } from '@/components/chatbot/floating-chatbot';
+import { TermsModal } from '@/components/terms-modal';
 import './globals.css';
 
 const sans = Inter({
@@ -20,7 +21,6 @@ const display = Instrument_Serif({
   display: 'swap',
 });
 
-// Replace Geist_Mono with Inter for mono as well
 const mono = Inter({
   subsets: ['latin'],
   variable: '--font-mono',
@@ -77,7 +77,70 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${sans.variable} ${display.variable} ${mono.variable}`}>
+      <head>
+        {/* Google Translate Script */}
+        <script
+          type="text/javascript"
+          src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+          async
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              function googleTranslateElementInit() {
+                new google.translate.TranslateElement({
+                  pageLanguage: 'en',
+                  includedLanguages: 'en,es,fr,de,it,pt,ru,zh,ja,ko,ar,hi',
+                  layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                  autoDisplay: false
+                }, 'google_translate_element');
+              }
+            `,
+          }}
+        />
+        {/* Hide ALL Google Translate UI elements */}
+        <style dangerouslySetInnerHTML={{
+          __html: `
+            /* Hide all Google Translate UI elements */
+            .goog-te-banner-frame.skiptranslate,
+            .goog-te-gadget-simple,
+            .goog-te-gadget,
+            .goog-te-banner-frame,
+            .goog-te-menu-frame,
+            .goog-te-common,
+            .skiptranslate,
+            #google_translate_element,
+            .goog-te-gadget-icon,
+            .goog-tooltip,
+            .goog-tooltip:hover,
+            .goog-text-highlight {
+              display: none !important;
+              visibility: hidden !important;
+            }
+            
+            /* Remove the iframe that causes the white bar */
+            iframe.skiptranslate {
+              display: none !important;
+              visibility: hidden !important;
+            }
+            
+            /* Keep body at top */
+            body {
+              top: 0px !important;
+              position: relative !important;
+            }
+            
+            /* Prevent any extra spacing at top */
+            html {
+              margin-top: 0px !important;
+            }
+          `
+        }} />
+      </head>
       <body className="min-h-screen overflow-x-hidden noise antialiased">
+        {/* Hidden div for Google Translate */}
+        <div id="google_translate_element" style={{ display: 'none' }} />
+        
         <a
           href="#main"
           className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:rounded-full focus:bg-violet-600 focus:px-4 focus:py-2 focus:text-white"
@@ -105,6 +168,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             error: { iconTheme: { primary: '#f87171', secondary: '#06081a' } },
           }}
         />
+        <TermsModal />
       </body>
     </html>
   );
