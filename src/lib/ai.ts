@@ -97,7 +97,7 @@ const knowledgeBase: Array<{ keywords: string[]; reply: string }> = [
   {
     keywords: ['who are you', 'what are you', 'are you human', 'are you ai'],
     reply:
-      "I'm Forge — the in-product AI built on Altivora itself. Yes, I'm an AI. I'm running a simulated response engine right now so you can try the experience without an API key, but the same architecture is what powers production bots.",
+      "I'm Altivora AI — the in-product AI built on Altivora itself. Yes, I'm an AI. I'm running a simulated response engine right now so you can try the experience without an API key, but the same architecture is what powers production bots.",
   },
 ];
 

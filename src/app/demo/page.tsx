@@ -38,7 +38,7 @@ export default function DemoPage() {
       id: uid(),
       role: 'assistant',
       content:
-        "Welcome to the BotForge playground. Tweak the system prompt, swap models, and put me through my paces. What should I be today?",
+        "Welcome to the Altivora playground. Tweak the system prompt, swap models, and put me through my paces. What should I be today?",
       createdAt: new Date().toISOString(),
     },
   ]);
@@ -48,7 +48,7 @@ export default function DemoPage() {
   const [showModelMenu, setShowModelMenu] = useState(false);
   const [showSettings, setShowSettings] = useState(true);
   const [systemPrompt, setSystemPrompt] = useState(
-    'You are a senior product specialist at BotForge AI. Be concise, technically rigorous, and friendly.',
+    'You are a senior product specialist at Altivora AI. Be concise, technically rigorous, and friendly.',
   );
   const [temperature, setTemperature] = useState(0.6);
   const [listening, setListening] = useState(false);
@@ -305,7 +305,7 @@ export default function DemoPage() {
                 <Sparkles className="h-4 w-4 text-white" />
               </div>
               <div>
-                <div className="font-display text-sm text-white">BotForge Playground</div>
+                <div className="font-display text-sm text-white">Altivora Playground</div>
                 <div className="flex items-center gap-2 text-xs text-white/50">
                   <span className="inline-flex h-1.5 w-1.5 rounded-full bg-emerald-400 [box-shadow:0_0_8px_rgba(52,211,153,0.7)]" />
                   Streaming · {model.label}

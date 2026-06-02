@@ -47,7 +47,7 @@ export function Testimonials() {
             <span className="italic text-gradient">first-line agents</span>
           </Heading>
           <Lede className="mx-auto mt-5">
-            From support and sales to internal ops, BotForge runs the conversations that used to
+            From support and sales to internal ops, Altivora AI runs the conversations that used to
             burn out your team. Here&apos;s what they&apos;re seeing.
           </Lede>
         </div>

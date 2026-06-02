@@ -71,7 +71,7 @@ export default function LoginPage() {
           </div>
 
           <div className="relative z-10 text-xs text-white/40">
-            © 2026 BotForge AI · The all-in-one conversational platform
+            © 2026 Altivora AI · The all-in-one conversational platform
           </div>
         </div>
 

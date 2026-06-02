@@ -2,8 +2,8 @@ import Link from 'next/link';
 import { ArrowLeft, Shield, Database, HardDrive, Globe, Mail, Clock, Trash2 } from 'lucide-react';
 
 export const metadata = {
-  title: 'Privacy Policy · BotForge AI',
-  description: 'How BotForge AI collects, uses, and protects your data. GDPR compliant privacy practices.',
+  title: 'Privacy Policy · Altivora AI',
+  description: 'How Altivora AI collects, uses, and protects your data. GDPR compliant privacy practices.',
 };
 
 export default function PrivacyPage() {
@@ -16,7 +16,7 @@ export default function PrivacyPage() {
           className="mb-8 inline-flex items-center gap-2 text-sm text-ink-400 transition-colors hover:text-white"
         >
           <ArrowLeft className="h-4 w-4" />
-          Back to BotForge AI
+          Back to Altivora AI
         </Link>
 
         {/* Header */}
@@ -32,7 +32,7 @@ export default function PrivacyPage() {
             Last updated: {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
           </p>
           <p className="mt-2 text-ink-400">
-            BotForge AI Solutions SL · C/ Ejemplo 123, 28001 Madrid · NIF/CIF: B-12345678
+            Altivora AI Solutions SL · C/ Ejemplo 123, 28001 Madrid · NIF/CIF: B-12345678
           </p>
         </div>
 
@@ -44,14 +44,14 @@ export default function PrivacyPage() {
             content={
               <>
                 <p>
-                  BotForge AI Solutions SL (hereinafter &quot;BotForge AI&quot;, &quot;we&quot;, &quot;us&quot;, or &quot;our&quot;) is the data controller responsible for your personal data.
+                  Altivora AI Solutions SL (hereinafter &quot;Altivora AI&quot;, &quot;we&quot;, &quot;us&quot;, or &quot;our&quot;) is the data controller responsible for your personal data.
                 </p>
                 <ul className="mt-3 list-inside list-disc space-y-1 text-ink-300">
-                  <li><strong>Entity:</strong> BotForge AI Solutions SL</li>
+                  <li><strong>Entity:</strong> Altivora AI Solutions SL</li>
                   <li><strong>Address:</strong> Calle Ejemplo 123, 28001 Madrid, Spain</li>
                   <li><strong>NIF/CIF:</strong> B-12345678</li>
-                  <li><strong>Email:</strong> privacy@botforge.ai</li>
-                  <li><strong>DPO Contact:</strong> dpo@botforge.ai</li>
+                  <li><strong>Email:</strong> privacy@altivora.ai</li>
+                  <li><strong>DPO Contact:</strong> dpo@altivora.ai</li>
                 </ul>
               </>
             }
@@ -115,7 +115,7 @@ export default function PrivacyPage() {
                   <li><strong>Payment Records:</strong> 7 years (Spanish tax law requirement)</li>
                 </ul>
                 <p className="mt-3 text-sm text-ink-400">
-                  You can request deletion of specific conversations or your entire account by emailing privacy@botforge.ai.
+                  You can request deletion of specific conversations or your entire account by emailing privacy@altivora.ai.
                 </p>
               </>
             }
@@ -195,7 +195,7 @@ export default function PrivacyPage() {
                   <RightCard right="Right to Object (Art. 21)" description="Object to processing based on legitimate interests" />
                 </div>
                 <p className="mt-4 text-sm text-ink-300">
-                  To exercise your rights, email <strong className="text-white">privacy@botforge.ai</strong> with your request.
+                  To exercise your rights, email <strong className="text-white">privacy@altivora.ai</strong> with your request.
                   We respond within 30 days (GDPR Article 12).
                 </p>
               </>
@@ -242,7 +242,7 @@ export default function PrivacyPage() {
             title="11. Children's Data"
             content={
               <p>
-                BotForge AI is not intended for children under 16. We do not knowingly collect data from minors.
+                Altivora AI is not intended for children under 16. We do not knowingly collect data from minors.
                 If you believe we have data from someone under 16, contact us immediately.
               </p>
             }
@@ -265,8 +265,8 @@ export default function PrivacyPage() {
             <h3 className="text-xl font-semibold text-white">Questions or Complaints?</h3>
             <p className="mt-2 text-ink-300">
               Contact our Data Protection Officer (DPO) at{' '}
-              <a href="mailto:dpo@botforge.ai" className="text-cyan-400 underline">
-                dpo@botforge.ai
+              <a href="mailto:dpo@altivora.ai" className="text-cyan-400 underline">
+                dpo@altivora.ai
               </a>
             </p>
             <p className="mt-2 text-sm text-ink-400">

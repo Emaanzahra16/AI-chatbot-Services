@@ -212,7 +212,7 @@ function ApiTab() {
       <div className="glass rounded-2xl border border-white/10 p-6">
         <h3 className="font-display text-lg text-white">Quick start</h3>
         <pre className="mt-4 overflow-x-auto rounded-xl border border-white/10 bg-ink-950 p-4 font-mono text-xs text-white/80">
-{`curl https://api.botforge.ai/v1/chat \\
+{`curl https://api.altivora.ai/v1/chat \\
   -H "Authorization: Bearer ${visible ? mockApiKey : 'bfai_sk_live_••••••••••••'}" \\
   -H "Content-Type: application/json" \\
   -d '{"botId":"bot_support","message":"Hello"}'`}

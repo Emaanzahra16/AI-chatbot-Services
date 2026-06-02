@@ -152,7 +152,7 @@ export const testimonials: Testimonial[] = [
     company: 'Lumen Health',
     avatar: 'https://api.dicebear.com/9.x/notionists/svg?seed=mira&backgroundColor=8b5cf6',
     quote:
-      'We replaced a 14-person tier-1 team with BotForge and CSAT actually went up six points. The thing genuinely sounds like our brand.',
+      'We replaced a 14-person tier-1 team with Altivora and CSAT actually went up six points. The thing genuinely sounds like our brand.',
     rating: 5,
   },
   {
@@ -182,7 +182,7 @@ export const testimonials: Testimonial[] = [
     company: 'Tabula',
     avatar: 'https://api.dicebear.com/9.x/notionists/svg?seed=marcus&backgroundColor=06b6d4',
     quote:
-      'We evaluated nine platforms. BotForge was the only one that didn\'t hallucinate on our compliance docs. That ended the search.',
+      'We evaluated nine platforms. Altivora was the only one that didn\'t hallucinate on our compliance docs. That ended the search.',
     rating: 5,
   },
   {
@@ -224,7 +224,7 @@ export const faqs: FAQ[] = [
       'Never. Your conversations and documents are encrypted at rest with per-tenant keys and are never used for model training — ours or any provider\'s. Enterprise plans include zero-retention routing through partner APIs.',
   },
   {
-    question: 'Can I self-host BotForge?',
+    question: 'Can I self-host Altivora?',
     answer:
       'Yes. Enterprise customers can deploy the full stack on their own AWS, GCP, or Azure tenancy with Terraform modules we provide. We also offer a managed VPC deployment for teams that want the convenience without the operational overhead.',
   },

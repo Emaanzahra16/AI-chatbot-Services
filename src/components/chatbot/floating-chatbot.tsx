@@ -28,7 +28,7 @@ export function FloatingChatbot() {
       id: 'welcome',
       role: 'assistant',
       content:
-        "Hi — I'm Forge, Altivora AI's in-product concierge. Ask me about features, pricing, integrations, or just say hi.",
+        "Hi — I'm Altivora Assistant, Altivora AI's in-product concierge. Ask me about features, pricing, integrations, or just say hi.",
       createdAt: new Date().toISOString(),
     },
   ]);
@@ -205,7 +205,7 @@ export function FloatingChatbot() {
                   <span className="absolute -bottom-0.5 -right-0.5 h-2.5 w-2.5 rounded-full border-2 border-ink-950 bg-emerald-400" />
                 </div>
                 <div>
-                  <div className="text-sm font-semibold text-white">Forge</div>
+                  <div className="text-sm font-semibold text-white">Altivora Assistant</div>
                   <div className="flex items-center gap-1.5 text-[11px] text-ink-300">
                     <PulseDot />
                     AI concierge · usually replies instantly
@@ -279,7 +279,7 @@ export function FloatingChatbot() {
                   ref={inputRef}
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
-                  placeholder="Ask Forge anything…"
+                  placeholder="Ask Altivora Assistant anything…"
                   disabled={streaming}
                   className="flex-1 bg-transparent text-sm text-white placeholder-ink-400 outline-none disabled:opacity-50"
                 />

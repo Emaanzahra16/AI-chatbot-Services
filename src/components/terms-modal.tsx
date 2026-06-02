@@ -9,7 +9,7 @@ export function TermsModal() {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    const hasAccepted = Cookies.get('botforge-terms-accepted');
+    const hasAccepted = Cookies.get('altivora-terms-accepted');
     if (!hasAccepted) {
       setIsOpen(true);
       document.body.style.overflow = 'hidden';
@@ -17,7 +17,7 @@ export function TermsModal() {
   }, []);
 
   const handleAccept = () => {
-    Cookies.set('botforge-terms-accepted', 'true', {
+    Cookies.set('altivora-terms-accepted', 'true', {
       expires: 365,
       secure: true,
       sameSite: 'strict',
@@ -60,7 +60,7 @@ export function TermsModal() {
               GDPR Compliance 🇪🇺
             </h3>
             <p className="text-xs leading-relaxed">
-              BotForge AI complies with European GDPR (Regulation EU 2016/679). 
+              Altivora AI complies with European GDPR (Regulation EU 2016/679). 
             </p>
           </div>
 

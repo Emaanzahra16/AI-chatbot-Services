@@ -18,7 +18,7 @@ import { services } from '@/data/content';
 import { FinalCTA } from '@/components/sections/final-cta';
 
 export const metadata: Metadata = {
-  title: 'Services — BotForge AI',
+  title: 'Services — Altivora AI',
   description:
     'Production AI for support, sales, knowledge, voice, custom LLMs, and analytics. Pick the surface area, we ship the bot.',
 };
@@ -44,7 +44,7 @@ export default function ServicesPage() {
             </Heading>
             <Lede className="mx-auto mt-5">
               Whether you need a tier-1 support bot, a sales co-pilot, or a voice agent that
-              survives a real phone call, BotForge runs the model, the memory, and the metrics.
+              survives a real phone call, Altivora AI runs the model, the memory, and the metrics.
             </Lede>
           </div>
         </ScrollReveal>

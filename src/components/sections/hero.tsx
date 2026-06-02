@@ -43,7 +43,7 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.1 }}
             className="font-display text-5xl font-normal leading-[0.95] tracking-tight text-white sm:text-7xl lg:text-[5.5rem]"
           >
-            Forge AI conversations <br className="hidden sm:inline" />
+            Altivora Assistant conversations <br className="hidden sm:inline" />
             that <span className="relative inline-block">
               <span className="text-gradient italic">actually</span>
               <svg className="absolute -bottom-2 left-0 w-full" viewBox="0 0 200 12" fill="none">

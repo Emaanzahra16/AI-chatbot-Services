@@ -194,13 +194,13 @@ Trust accumulates one interaction at a time. The bots that get this right become
   },
   {
     slug: 'the-q1-product-update',
-    title: 'The Q1 Product Update: Streaming, Memory, and the Forge SDK',
+    title: 'The Q1 Product Update: Streaming, Memory, and the Altivora SDK',
     excerpt:
       'Three months, twelve releases, and a few things we shipped quietly because they were too good to bury in a changelog.',
     content: `
 We shipped a lot in Q1. Here's what mattered.
 
-## Forge SDK 2.0
+## Altivora SDK 2.0
 
 Typed clients for TypeScript, Python, Go, and Ruby. First-class streaming, function calling, and structured outputs. The TS package alone shed 38% of its bundle size after we dropped a vendored polyfill we no longer needed.
 

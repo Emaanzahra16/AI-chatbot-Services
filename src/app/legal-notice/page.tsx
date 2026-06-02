@@ -15,7 +15,7 @@ export default function LegalNoticePage() {
           className="mb-8 inline-flex items-center gap-2 text-sm text-ink-400 transition-colors hover:text-white"
         >
           <ArrowLeft className="h-4 w-4" />
-          Back to BotForge AI
+          Back to Altivora AI
         </Link>
 
         {/* Header - Spanish LSSI-CE Badge */}
@@ -45,13 +45,13 @@ export default function LegalNoticePage() {
               y de comercio electrónico (LSSI-CE), se informa que este sitio web es operado por:
             </p>
             <div className="space-y-3 text-sm">
-              <InfoRow icon={Building} label="Razón Social" value="BotForge AI Solutions SL" />
+              <InfoRow icon={Building} label="Razón Social" value="Altivora AI Solutions SL" />
               <InfoRow icon={Mail} label="Domicilio" value="Calle Ejemplo 123, 28001 Madrid, España" />
               <InfoRow icon={FileText} label="NIF / CIF" value="B-12345678" />
-              <InfoRow icon={Mail} label="Correo Electrónico" value="legal@botforge.ai" />
+              <InfoRow icon={Mail} label="Correo Electrónico" value="legal@altivora.ai" />
               <InfoRow icon={Phone} label="Teléfono" value="+34 900 123 456" />
               <InfoRow icon={Building} label="Registro Mercantil" value="Madrid, Tomo 12345, Folio 123, Sección 8, Hoja M-123456" />
-              <InfoRow icon={Globe} label="Dominio" value="botforge.ai" />
+              <InfoRow icon={Globe} label="Dominio" value="altivora.ai" />
             </div>
           </div>
 
@@ -64,10 +64,10 @@ export default function LegalNoticePage() {
             <div className="space-y-3 text-sm text-ink-300">
               <p>In compliance with Spanish Law 34/2002 on Information Society Services and Electronic Commerce (LSSI-CE), we inform you that:</p>
               <div className="mt-3 space-y-2">
-                <p><strong className="text-white">Company Name:</strong> BotForge AI Solutions SL</p>
+                <p><strong className="text-white">Company Name:</strong> Altivora AI Solutions SL</p>
                 <p><strong className="text-white">Registered Address:</strong> Calle Ejemplo 123, 28001 Madrid, Spain</p>
                 <p><strong className="text-white">Tax ID (NIF/CIF):</strong> B-12345678</p>
-                <p><strong className="text-white">Email:</strong> legal@botforge.ai</p>
+                <p><strong className="text-white">Email:</strong> legal@altivora.ai</p>
                 <p><strong className="text-white">Phone:</strong> +34 900 123 456</p>
                 <p><strong className="text-white">Commercial Registry:</strong> Madrid, Volume 12345, Folio 123, Section 8, Page M-123456</p>
               </div>
@@ -82,14 +82,14 @@ export default function LegalNoticePage() {
               <>
                 <p className="font-semibold text-amber-300">Español:</p>
                 <p className="text-sm text-ink-300">
-                  El presente aviso legal regula el uso del sitio web botforge.ai (en adelante, &quot;el Sitio Web&quot;), 
-                  del cual es titular BotForge AI Solutions SL (en adelante, &quot;BotForge AI&quot;). El Sitio Web tiene 
+                  El presente aviso legal regula el uso del sitio web altivora.ai (en adelante, &quot;el Sitio Web&quot;), 
+                  del cual es titular Altivora AI Solutions SL (en adelante, &quot;Altivora AI&quot;). El Sitio Web tiene 
                   como finalidad ofrecer servicios de chatbots y asistentes de inteligencia artificial.
                 </p>
                 <p className="mt-3 font-semibold text-cyan-300">English:</p>
                 <p className="text-sm text-ink-300">
-                  This legal notice regulates the use of the website botforge.ai (hereinafter &quot;the Website&quot;), 
-                  owned by BotForge AI Solutions SL (hereinafter &quot;BotForge AI&quot;). The Website aims to provide 
+                  This legal notice regulates the use of the website altivora.ai (hereinafter &quot;the Website&quot;), 
+                  owned by Altivora AI Solutions SL (hereinafter &quot;Altivora AI&quot;). The Website aims to provide 
                   chatbot and artificial intelligence assistant services.
                 </p>
               </>
@@ -113,7 +113,7 @@ export default function LegalNoticePage() {
                 <ul className="mt-3 list-inside list-disc space-y-1 text-sm text-ink-300">
                   <li>El usuario se obliga a hacer un uso adecuado del Sitio Web conforme a la ley y el presente Aviso Legal.</li>
                   <li>Queda prohibido realizar actividades que puedan dañar, sobrecargar o deteriorar el Sitio Web.</li>
-                  <li>BotForge AI se reserva el derecho de modificar unilateralmente el contenido del Sitio Web.</li>
+                  <li>Altivora AI se reserva el derecho de modificar unilateralmente el contenido del Sitio Web.</li>
                 </ul>
                 <p className="mt-3 font-semibold text-cyan-300">English:</p>
                 <p className="text-sm text-ink-300">
@@ -136,13 +136,13 @@ export default function LegalNoticePage() {
                 <p className="font-semibold text-amber-300">Español:</p>
                 <p className="text-sm text-ink-300">
                   Todos los contenidos del Sitio Web (textos, imágenes, logotipos, diseño, estructura, etc.) 
-                  son propiedad de BotForge AI o de sus licenciantes y están protegidos por la legislación 
+                  son propiedad de Altivora AI o de sus licenciantes y están protegidos por la legislación 
                   española e internacional sobre propiedad intelectual e industrial.
                 </p>
                 <p className="mt-3 font-semibold text-cyan-300">English:</p>
                 <p className="text-sm text-ink-300">
                   All content on the Website (texts, images, logos, design, structure, etc.) is the property 
-                  of BotForge AI or its licensors and is protected by Spanish and international intellectual 
+                  of Altivora AI or its licensors and is protected by Spanish and international intellectual 
                   and industrial property laws.
                 </p>
               </>
@@ -157,18 +157,18 @@ export default function LegalNoticePage() {
               <>
                 <p className="font-semibold text-amber-300">Español:</p>
                 <p className="text-sm text-ink-300">
-                  BotForge AI no garantiza la disponibilidad, continuidad o ausencia de errores en el Sitio Web. 
+                  Altivora AI no garantiza la disponibilidad, continuidad o ausencia de errores en el Sitio Web. 
                   No se responsabiliza de los daños o perjuicios que puedan derivarse del uso de la información 
                   contenida, especialmente de las respuestas generadas por inteligencia artificial (&quot;alucinaciones&quot;).
                 </p>
                 <div className="mt-3 rounded-lg border border-rose-500/20 bg-rose-500/5 p-3">
                   <p className="text-sm text-rose-300">
-                    ⚠️ BotForge AI no es responsable de las decisiones tomadas basándose en respuestas generadas por IA.
+                    ⚠️ Altivora AI no es responsable de las decisiones tomadas basándose en respuestas generadas por IA.
                   </p>
                 </div>
                 <p className="mt-3 font-semibold text-cyan-300">English:</p>
                 <p className="text-sm text-ink-300">
-                  BotForge AI does not guarantee the availability, continuity, or absence of errors on the Website. 
+                  Altivora AI does not guarantee the availability, continuity, or absence of errors on the Website. 
                   We are not responsible for damages that may arise from the use of the information contained, 
                   especially AI-generated responses (&quot;hallucinations&quot;).
                 </p>
@@ -186,7 +186,7 @@ export default function LegalNoticePage() {
                 <p className="text-sm text-ink-300">
                   De acuerdo con el Reglamento General de Protección de Datos (RGPD) y la Ley Orgánica 3/2018 
                   de Protección de Datos Personales (LOPDGDD), le informamos que sus datos serán tratados por 
-                  BotForge AI como responsable del tratamiento. Puede consultar nuestra 
+                  Altivora AI como responsable del tratamiento. Puede consultar nuestra 
                   <Link href="/privacy" className="mx-1 text-cyan-400 underline">Política de Privacidad</Link> 
                   para más información.
                 </p>
@@ -194,7 +194,7 @@ export default function LegalNoticePage() {
                 <p className="text-sm text-ink-300">
                   In accordance with the General Data Protection Regulation (GDPR) and Spanish Organic Law 3/2018 
                   on Personal Data Protection (LOPDGDD), we inform you that your data will be processed by 
-                  BotForge AI as the data controller. Please see our 
+                  Altivora AI as the data controller. Please see our 
                   <Link href="/privacy" className="mx-1 text-cyan-400 underline">Privacy Policy</Link> for more information.
                 </p>
               </>
@@ -254,7 +254,7 @@ export default function LegalNoticePage() {
               Para comunicaciones oficiales con autoridades, por favor contacte a:
             </p>
             <div className="mt-3 space-y-2 text-sm">
-              <p><strong className="text-white">Email:</strong> <a href="mailto:legal@botforge.ai" className="text-cyan-400 underline">legal@botforge.ai</a></p>
+              <p><strong className="text-white">Email:</strong> <a href="mailto:legal@altivora.ai" className="text-cyan-400 underline">legal@altivora.ai</a></p>
               <p><strong className="text-white">Teléfono / Phone:</strong> +34 900 123 456</p>
               <p><strong className="text-white">Dirección / Address:</strong> Calle Ejemplo 123, 28001 Madrid, España</p>
             </div>
@@ -273,7 +273,7 @@ export default function LegalNoticePage() {
 
         {/* Footer */}
         <div className="mt-12 border-t border-white/10 pt-8 text-center text-xs text-ink-400">
-          <p>© {currentYear} BotForge AI Solutions SL. Todos los derechos reservados.</p>
+          <p>© {currentYear} Altivora AI Solutions SL. Todos los derechos reservados.</p>
           <p className="mt-1">
             <Link href="/privacy" className="mx-2 hover:text-cyan-400">Privacidad</Link> •
             <Link href="/terms" className="mx-2 hover:text-cyan-400">Términos</Link> •

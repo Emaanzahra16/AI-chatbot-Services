@@ -7,7 +7,7 @@ import { ScrollReveal } from '@/components/ui/scroll-reveal';
 import { Check, X } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Pricing — BotForge AI',
+  title: 'Pricing — Altivora AI',
   description:
     'Transparent, usage-based pricing. Start free, scale to enterprise. No surprise overage charges.',
 };

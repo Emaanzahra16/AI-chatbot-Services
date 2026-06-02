@@ -64,7 +64,7 @@ export async function POST(req: NextRequest) {
   //       model: process.env.OPENAI_MODEL || 'gpt-4o-mini',
   //       stream: true,
   //       messages: [
-  //         { role: 'system', content: 'You are Forge, the concierge for BotForge AI.' },
+  //         { role: 'system', content: 'You are Altivora Assistant, the concierge for Altivora AI.' },
   //         ...messages,
   //       ],
   //     }),

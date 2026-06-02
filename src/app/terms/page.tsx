@@ -2,8 +2,8 @@ import Link from 'next/link';
 import { ArrowLeft, FileText, AlertTriangle, Shield, Terminal, UserX, CreditCard, Scale } from 'lucide-react';
 
 export const metadata = {
-  title: 'Terms of Service · BotForge AI',
-  description: 'Terms and conditions for using BotForge AI chatbot services. User responsibilities, liability limits, and prohibited uses.',
+  title: 'Terms of Service · Altivora AI',
+  description: 'Terms and conditions for using Altivora AI chatbot services. User responsibilities, liability limits, and prohibited uses.',
 };
 
 export default function TermsPage() {
@@ -16,7 +16,7 @@ export default function TermsPage() {
           className="mb-8 inline-flex items-center gap-2 text-sm text-ink-400 transition-colors hover:text-white"
         >
           <ArrowLeft className="h-4 w-4" />
-          Back to BotForge AI
+          Back to Altivora AI
         </Link>
 
         {/* Header */}
@@ -32,7 +32,7 @@ export default function TermsPage() {
             Effective Date: {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
           </p>
           <p className="mt-2 text-ink-400">
-            By using BotForge AI, you agree to these terms. Please read carefully.
+            By using Altivora AI, you agree to these terms. Please read carefully.
           </p>
         </div>
 
@@ -44,7 +44,7 @@ export default function TermsPage() {
             content={
               <>
                 <p>
-                  By accessing or using BotForge AI (the &quot;Service&quot;), you agree to be bound by these Terms of Service 
+                  By accessing or using Altivora AI (the &quot;Service&quot;), you agree to be bound by these Terms of Service 
                   (&quot;Terms&quot;). If you do not agree, do not use the Service.
                 </p>
                 <div className="mt-3 rounded-lg border border-amber-500/20 bg-amber-500/5 p-3">
@@ -62,7 +62,7 @@ export default function TermsPage() {
             title="2. Eligibility"
             content={
               <>
-                <p>You may use BotForge AI only if:</p>
+                <p>You may use Altivora AI only if:</p>
                 <ul className="mt-3 list-inside list-disc space-y-1 text-ink-300">
                   <li>You are at least <strong className="text-white">16 years old</strong></li>
                   <li>You are not located in a country subject to EU/UN sanctions</li>
@@ -100,7 +100,7 @@ export default function TermsPage() {
                 <div className="rounded-lg border border-rose-500/20 bg-rose-500/5 p-4">
                   <p className="font-semibold text-rose-300">LIMITATION OF AI ACCURACY</p>
                   <p className="mt-2 text-sm">
-                    BotForge AI uses Large Language Models (LLMs) that can generate <strong className="text-white">incorrect, biased, or nonsensical information</strong> 
+                    Altivora AI uses Large Language Models (LLMs) that can generate <strong className="text-white">incorrect, biased, or nonsensical information</strong> 
                     (commonly known as &quot;hallucinations&quot;). You acknowledge that:
                   </p>
                   <ul className="mt-3 list-inside list-disc space-y-1 text-sm text-ink-300">
@@ -110,7 +110,7 @@ export default function TermsPage() {
                     <li><strong className="text-white">You are solely responsible</strong> for verifying any AI-generated information before relying on it</li>
                   </ul>
                   <p className="mt-3 text-sm font-semibold text-rose-300">
-                    BotForge AI is NOT liable for any damages arising from reliance on AI-generated content.
+                    Altivora AI is NOT liable for any damages arising from reliance on AI-generated content.
                   </p>
                 </div>
               </>
@@ -150,7 +150,7 @@ export default function TermsPage() {
                 <div className="space-y-3">
                   <div className="rounded-lg border border-white/10 bg-white/5 p-3">
                     <p className="font-semibold text-white">What We Own:</p>
-                    <p className="text-sm text-ink-300">BotForge AI software, UI/UX design, logos, trademarks, and underlying AI technology.</p>
+                    <p className="text-sm text-ink-300">Altivora AI software, UI/UX design, logos, trademarks, and underlying AI technology.</p>
                   </div>
                   <div className="rounded-lg border border-white/10 bg-white/5 p-3">
                     <p className="font-semibold text-white">What You Own:</p>
@@ -175,7 +175,7 @@ export default function TermsPage() {
               <>
                 <p>
                   Your use of the Service is governed by our <Link href="/privacy" className="text-cyan-400 underline">Privacy Policy</Link>.
-                  By using BotForge AI, you consent to:
+                  By using Altivora AI, you consent to:
                 </p>
                 <ul className="mt-3 list-inside list-disc space-y-1 text-ink-300">
                   <li>Collection and processing of your conversation data</li>
@@ -231,7 +231,7 @@ export default function TermsPage() {
                 <div className="rounded-lg border border-rose-500/20 bg-rose-500/5 p-4">
                   <p className="font-semibold text-rose-300">TO THE MAXIMUM EXTENT PERMITTED BY LAW:</p>
                   <ul className="mt-3 list-inside list-disc space-y-1 text-sm text-ink-300">
-                    <li>BotForge AI is <strong className="text-white">NOT LIABLE</strong> for any indirect, incidental, special, consequential, or punitive damages</li>
+                    <li>Altivora AI is <strong className="text-white">NOT LIABLE</strong> for any indirect, incidental, special, consequential, or punitive damages</li>
                     <li>Our total liability is limited to the <strong className="text-white">amount you paid in the past 12 months</strong> (or €100 if free tier)</li>
                     <li>We are <strong className="text-white">NOT LIABLE</strong> for damages caused by AI hallucinations, data loss, or service interruptions</li>
                     <li>We are <strong className="text-white">NOT LIABLE</strong> for third-party services (OpenAI, hosting providers, etc.)</li>
@@ -249,7 +249,7 @@ export default function TermsPage() {
             title="11. Indemnification"
             content={
               <p>
-                You agree to indemnify and hold harmless BotForge AI from any claims, damages, or expenses 
+                You agree to indemnify and hold harmless Altivora AI from any claims, damages, or expenses 
                 arising from your violation of these Terms, your misuse of the Service, or your violation of applicable laws.
               </p>
             }
@@ -309,10 +309,10 @@ export default function TermsPage() {
               <div className="space-y-2">
                 <p>Legal questions or formal notices should be sent to:</p>
                 <p className="font-mono text-sm text-ink-300">
-                  BotForge AI Solutions SL<br />
+                  Altivora AI Solutions SL<br />
                   Attn: Legal Department<br />
                   Calle Ejemplo 123, 28001 Madrid, Spain<br />
-                  Email: <a href="mailto:legal@botforge.ai" className="text-cyan-400 underline">legal@botforge.ai</a>
+                  Email: <a href="mailto:legal@altivora.ai" className="text-cyan-400 underline">legal@altivora.ai</a>
                 </p>
               </div>
             }
@@ -322,7 +322,7 @@ export default function TermsPage() {
         {/* Footer Note */}
         <div className="mt-12 text-center text-xs text-ink-400">
           <p>
-            These Terms constitute the entire agreement between you and BotForge AI.
+            These Terms constitute the entire agreement between you and Altivora AI.
             Last updated: {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
           </p>
         </div>

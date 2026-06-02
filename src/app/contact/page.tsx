@@ -16,11 +16,11 @@ const offices = [
 ];
 
 const channels = [
-  { icon: Mail, label: 'Email', value: 'hello@botforge.ai', href: 'mailto:hello@botforge.ai' },
-  { icon: MessageCircle, label: 'Sales', value: 'sales@botforge.ai', href: 'mailto:sales@botforge.ai' },
-  { icon: Twitter, label: 'Twitter', value: '@botforgeai', href: '#' },
-  { icon: Github, label: 'GitHub', value: 'github.com/botforge', href: '#' },
-  { icon: Linkedin, label: 'LinkedIn', value: '/company/botforge', href: '#' },
+  { icon: Mail, label: 'Email', value: 'hello@altivora.ai', href: 'mailto:hello@altivora.ai' },
+  { icon: MessageCircle, label: 'Sales', value: 'sales@altivora.ai', href: 'mailto:sales@altivora.ai' },
+  { icon: Twitter, label: 'Twitter', value: '@altivoraai', href: '#' },
+  { icon: Github, label: 'GitHub', value: 'github.com/altivora', href: '#' },
+  { icon: Linkedin, label: 'LinkedIn', value: '/company/altivora', href: '#' },
 ];
 
 export default function ContactPage() {

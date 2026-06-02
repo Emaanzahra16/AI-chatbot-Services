@@ -75,7 +75,7 @@ export default function CookiesPage() {
           className="mb-8 inline-flex items-center gap-2 text-sm text-ink-400 transition-colors hover:text-white"
         >
           <ArrowLeft className="h-4 w-4" />
-          Back to BotForge AI
+          Back to Altivora AI
         </Link>
 
         {/* Header */}
@@ -240,7 +240,7 @@ export default function CookiesPage() {
                   </thead>
                   <tbody className="text-ink-400">
                     <tr className="border-b border-white/5">
-                      <td className="py-2 font-mono text-xs">botforge-terms-accepted</td>
+                      <td className="py-2 font-mono text-xs">altivora-terms-accepted</td>
                       <td className="py-2 text-xs">Stores terms acceptance status</td>
                       <td className="py-2 text-xs">1 year</td>
                     </tr>
@@ -310,7 +310,7 @@ export default function CookiesPage() {
             content={
               <div className="rounded-lg border border-amber-500/20 bg-amber-500/5 p-4">
                 <p className="text-sm text-amber-300">
-                  🔔 When you first visit BotForge AI, a cookie banner will appear asking for your consent before 
+                  🔔 When you first visit Altivora AI, a cookie banner will appear asking for your consent before 
                   loading any non-essential cookies. You can change your preferences anytime on this page.
                 </p>
                 <p className="mt-2 text-sm text-ink-300">
@@ -338,8 +338,8 @@ export default function CookiesPage() {
             <h3 className="text-xl font-semibold text-white">Questions About Cookies?</h3>
             <p className="mt-2 text-ink-300">
               Contact our Data Protection Officer at{' '}
-              <a href="mailto:privacy@botforge.ai" className="text-cyan-400 underline">
-                privacy@botforge.ai
+              <a href="mailto:privacy@altivora.ai" className="text-cyan-400 underline">
+                privacy@altivora.ai
               </a>
             </p>
           </div>

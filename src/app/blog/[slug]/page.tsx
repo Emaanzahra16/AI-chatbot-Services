@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const post = getBlogPost(params.slug);
   if (!post) return { title: 'Not found' };
   return {
-    title: `${post.title} — BotForge AI`,
+    title: `${post.title} — Altivora AI`,
     description: post.excerpt,
     openGraph: {
       title: post.title,

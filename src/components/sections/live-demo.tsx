@@ -15,7 +15,7 @@ export function LiveDemo() {
       id: 'demo-1',
       role: 'assistant',
       content:
-        "This is a live BotForge agent. Ask me anything — I'm streaming token by token, just like in production.",
+        "This is a live Altivora AI agent. Ask me anything — I'm streaming token by token, just like in production.",
       createdAt: new Date().toISOString(),
     },
   ]);
@@ -89,7 +89,7 @@ export function LiveDemo() {
           Talk to the platform <span className="italic text-gradient">that&apos;s talking back.</span>
         </Heading>
         <Lede className="mx-auto mt-6 max-w-2xl">
-          This widget is a live BotForge agent. Same architecture, same streaming, same response model
+          This widget is a live Altivora AI agent. Same architecture, same streaming, same response model
           your customers will use.
         </Lede>
       </ScrollReveal>
@@ -105,7 +105,7 @@ export function LiveDemo() {
                   <Sparkles className="h-4 w-4" />
                 </div>
                 <div>
-                  <div className="text-sm font-semibold text-white">Forge · Demo Agent</div>
+                  <div className="text-sm font-semibold text-white">Altivora · Demo Agent</div>
                   <div className="flex items-center gap-1.5 text-[11px] text-ink-300">
                     <PulseDot />
                     Streaming · gpt-4o-mini · response time avg 312ms
@@ -167,7 +167,7 @@ export function LiveDemo() {
                 <input
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
-                  placeholder="Ask Forge anything…"
+                  placeholder="Ask Altivora AI assistant anything…"
                   disabled={streaming}
                   className="flex-1 bg-transparent text-sm text-white placeholder-ink-400 outline-none"
                 />

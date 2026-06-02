@@ -7,7 +7,7 @@ import { FinalCTA } from '@/components/sections/final-cta';
 import { Compass, Heart, Eye, Rocket, Users, Sparkles } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'About — BotForge AI',
+  title: 'About — Altivora AI',
   description:
     'We build conversational AI that earns trust. Meet the team forging the next generation of chatbots.',
 };
@@ -105,7 +105,7 @@ const timeline = [
     year: '2026',
     title: 'Series A + global expansion',
     description:
-      'Closed $48M Series A. Opened offices in Berlin and Singapore. 14,000+ teams now run on BotForge.',
+      'Closed $48M Series A. Opened offices in Berlin and Singapore. 14,000+ teams now run on Altivora.',
   },
 ];
 

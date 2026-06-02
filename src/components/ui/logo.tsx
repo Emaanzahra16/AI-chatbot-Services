@@ -49,7 +49,7 @@ export function Logo({ className, showText = true, size = 32 }: LogoProps) {
       </svg>
       {showText && (
         <span className="text-lg font-semibold tracking-tight">
-          Bot<span className="text-gradient">Forge</span>
+          Alt<span className="text-gradient">ivora</span>
         </span>
       )}
     </div>

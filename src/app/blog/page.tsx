@@ -8,7 +8,7 @@ import { blogPosts } from '@/data/blog';
 import { formatDate } from '@/lib/utils';
 
 export const metadata: Metadata = {
-  title: 'Blog — BotForge AI',
+  title: 'Blog — Altivora AI',
   description:
     'Engineering essays, product updates, and field notes from the team building production-grade conversational AI.',
 };

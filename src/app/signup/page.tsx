@@ -28,7 +28,7 @@ export default function SignupPage() {
     e.preventDefault();
     setLoading(true);
     await new Promise((r) => setTimeout(r, 1000));
-    toast.success('Account created — welcome to BotForge.');
+    toast.success('Account created — welcome to Altivora.');
     router.push('/dashboard');
   }
 
