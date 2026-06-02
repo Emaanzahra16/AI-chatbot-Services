@@ -1,4 +1,4 @@
-// BotForge AI — Prisma schema
+// Altivora AI — Prisma schema
 // Run `npx prisma migrate dev` after setting DATABASE_URL.
 
 generator client {
