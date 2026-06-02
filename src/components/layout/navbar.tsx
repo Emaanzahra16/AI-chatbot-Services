@@ -46,7 +46,7 @@ export function Navbar() {
                 : 'border-white/[0.06] bg-ink-950/30 backdrop-blur-md',
             )}
           >
-            <Link href="/" aria-label="BotForge AI home" className="focus-ring rounded-full">
+            <Link href="/" aria-label="Altivora AI home" className="focus-ring rounded-full">
               <Logo />
             </Link>
 

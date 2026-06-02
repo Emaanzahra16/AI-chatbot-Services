@@ -8,7 +8,7 @@ import { FAQ } from '@/components/sections/faq';
 import { FinalCTA } from '@/components/sections/final-cta';
 
 export const metadata: Metadata = {
-  title: 'BotForge AI — Build chatbots that actually answer',
+  title: 'Altivora AI — Build chatbots that actually answer',
   description:
     'A production-grade AI chatbot platform for teams who care about response quality, latency, and brand voice. Streaming, memory, voice, and analytics out of the box.',
 };

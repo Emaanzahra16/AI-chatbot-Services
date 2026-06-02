@@ -1,18 +1,18 @@
 export const siteConfig = {
-  name: 'BotForge AI',
-  shortName: 'BotForge',
+  name: 'Altivora AI',
+  shortName: 'Altivora',
   tagline: 'Forge intelligent conversations.',
   description:
-    'BotForge AI is the enterprise platform to build, train, and deploy production-grade AI chatbots in minutes — with conversation memory, streaming, and analytics.',
-  url: 'https://botforge.ai',
+    'Altivora AI is the enterprise platform to build, train, and deploy production-grade AI chatbots in minutes — with conversation memory, streaming, and analytics.',
+  url: 'https://altivora.ai',
   ogImage: '/og.png',
-  twitter: '@botforgeai',
-  email: 'hello@botforge.ai',
+  twitter: '@altivoraai',
+  email: 'hello@altivora.ai',
   links: {
-    twitter: 'https://twitter.com/botforgeai',
-    github: 'https://github.com/botforgeai',
-    linkedin: 'https://linkedin.com/company/botforgeai',
-    discord: 'https://discord.gg/botforgeai',
+    twitter: 'https://twitter.com/altivoraai',
+    github: 'https://github.com/altivoraai',
+    linkedin: 'https://linkedin.com/company/altivoraai',
+    discord: 'https://discord.gg/altivoraai',
   },
   keywords: [
     'AI chatbot',

@@ -143,7 +143,7 @@ function HeroPreview() {
           </div>
           <div className="flex items-center gap-2 text-xs text-ink-400">
             <PulseDot />
-            <span>botforge.ai/agent/support-concierge</span>
+            <span>altivora.ai/agent/support-concierge</span>
           </div>
           <span className="w-12" />
         </div>
@@ -156,7 +156,7 @@ function HeroPreview() {
             </PreviewBubble>
             <PreviewBubble role="assistant">
               I see the request in your logs — looks like a CSP violation, not a 502 from our end.
-              Your `connect-src` is missing `wss://api.botforge.ai`. Add that and refresh; if it&apos;s
+              Your `connect-src` is missing `wss://api.altivora.ai`. Add that and refresh; if it&apos;s
               still broken in 30 seconds I&apos;ll page Engineering.
             </PreviewBubble>
             <PreviewBubble role="user">That fixed it. Thanks.</PreviewBubble>

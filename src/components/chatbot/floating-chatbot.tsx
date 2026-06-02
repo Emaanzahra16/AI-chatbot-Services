@@ -28,7 +28,7 @@ export function FloatingChatbot() {
       id: 'welcome',
       role: 'assistant',
       content:
-        "Hi — I'm Forge, BotForge AI's in-product concierge. Ask me about features, pricing, integrations, or just say hi.",
+        "Hi — I'm Forge, Altivora AI's in-product concierge. Ask me about features, pricing, integrations, or just say hi.",
       createdAt: new Date().toISOString(),
     },
   ]);
@@ -308,7 +308,7 @@ export function FloatingChatbot() {
               <div className="mt-2 flex items-center justify-between px-1 text-[10px] text-ink-400">
                 <span className="flex items-center gap-1">
                   <Logo size={12} showText={false} />
-                  Powered by BotForge AI
+                  Powered by Altivora AI
                 </span>
                 <span>Press Enter ↵</span>
               </div>

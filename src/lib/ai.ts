@@ -5,7 +5,7 @@
 import type { ChatMessage } from '@/types';
 
 export const suggestedPrompts = [
-  'What can BotForge AI do?',
+  'What can Altivora AI do?',
   'How does pricing work?',
   'Show me an integration example',
   'Is my data secure?',
@@ -17,7 +17,7 @@ const knowledgeBase: Array<{ keywords: string[]; reply: string }> = [
   {
     keywords: ['hello', 'hi', 'hey', 'sup', 'yo', 'howdy'],
     reply:
-      "Hey there — I'm Forge, BotForge AI's resident concierge. I can answer product questions, walk you through pricing, show you a code sample, or just chat. What brings you in today?",
+      "Hey there — I'm Altivora, Altivora AI's resident concierge. I can answer product questions, walk you through pricing, show you a code sample, or just chat. What brings you in today?",
   },
   {
     keywords: ['pricing', 'cost', 'price', 'plan', 'how much', 'expensive'],
@@ -97,12 +97,12 @@ const knowledgeBase: Array<{ keywords: string[]; reply: string }> = [
   {
     keywords: ['who are you', 'what are you', 'are you human', 'are you ai'],
     reply:
-      "I'm Forge — the in-product AI built on BotForge itself. Yes, I'm an AI. I'm running a simulated response engine right now so you can try the experience without an API key, but the same architecture is what powers production bots.",
+      "I'm Forge — the in-product AI built on Altivora itself. Yes, I'm an AI. I'm running a simulated response engine right now so you can try the experience without an API key, but the same architecture is what powers production bots.",
   },
 ];
 
 const fallbackReplies = [
-  "That's a great question. Let me give you the short version: BotForge AI lets you build, deploy, and scale conversational agents with memory, multi-model routing, and grounded answers. Want me to go deeper on any of those?",
+  "That's a great question. Let me give you the short version: Altivora AI lets you build, deploy, and scale conversational agents with memory, multi-model routing, and grounded answers. Want me to go deeper on any of those?",
   "Tell me a bit more about your use case and I can point you to the right starting place — support, sales, knowledge base, or something custom?",
   "I want to make sure I give you a useful answer. Could you rephrase or share what you're trying to accomplish? I can also walk you through specific features if you'd like.",
   "Good question. Most teams arrive looking for one of three things: a support agent that resolves tickets, a sales bot that books meetings, or a knowledge layer over their docs. Any of those ring a bell?",
@@ -120,7 +120,7 @@ function pickReply(message: string): string {
 
 export function generateResponse(messages: ChatMessage[]): string {
   const lastUser = [...messages].reverse().find((m) => m.role === 'user');
-  if (!lastUser) return 'Hi! Ask me anything about BotForge AI.';
+  if (!lastUser) return 'Hi! Ask me anything about Altivora AI.';
   return pickReply(lastUser.content);
 }
 

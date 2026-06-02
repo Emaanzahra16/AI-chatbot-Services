@@ -70,7 +70,7 @@ export function Footer() {
             backgroundClip: 'text',
           }}
         >
-          BotForge
+          Altivora 
         </div>
       </div>
     </footer>
