@@ -103,5 +103,11 @@ model Lead {
   company   String?
   message   String   @db.Text
   source    String?
+
+  // Step 9F additions (IMPORTANT)
+  page      String?
+  plan      String?
+  phone     String?
+
   createdAt DateTime @default(now())
 }

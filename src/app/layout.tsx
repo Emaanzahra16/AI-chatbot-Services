@@ -8,6 +8,8 @@ import { FloatingChatbot } from '@/components/chatbot/floating-chatbot';
 import { TermsModal } from '@/components/terms-modal';
 import './globals.css';
 
+import Providers from './providers'; // ✅ IMPORTANT FIX
+
 const sans = Inter({
   subsets: ['latin'],
   variable: '--font-sans',
@@ -77,98 +79,77 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${sans.variable} ${display.variable} ${mono.variable}`}>
-      <head>
-        {/* Google Translate Script */}
-        <script
-          type="text/javascript"
-          src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
-          async
-        />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              function googleTranslateElementInit() {
-                new google.translate.TranslateElement({
-                  pageLanguage: 'en',
-                  includedLanguages: 'en,es,fr,de,it,pt,ru,zh,ja,ko,ar,hi',
-                  layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-                  autoDisplay: false
-                }, 'google_translate_element');
-              }
-            `,
-          }}
-        />
-        {/* Hide ALL Google Translate UI elements */}
-        <style dangerouslySetInnerHTML={{
-          __html: `
-            /* Hide all Google Translate UI elements */
-            .goog-te-banner-frame.skiptranslate,
-            .goog-te-gadget-simple,
-            .goog-te-gadget,
-            .goog-te-banner-frame,
-            .goog-te-menu-frame,
-            .goog-te-common,
-            .skiptranslate,
-            #google_translate_element,
-            .goog-te-gadget-icon,
-            .goog-tooltip,
-            .goog-tooltip:hover,
-            .goog-text-highlight {
-              display: none !important;
-              visibility: hidden !important;
-            }
-            
-            /* Remove the iframe that causes the white bar */
-            iframe.skiptranslate {
-              display: none !important;
-              visibility: hidden !important;
-            }
-            
-            /* Keep body at top */
-            body {
-              top: 0px !important;
-              position: relative !important;
-            }
-            
-            /* Prevent any extra spacing at top */
-            html {
-              margin-top: 0px !important;
-            }
-          `
-        }} />
-      </head>
       <body className="min-h-screen overflow-x-hidden noise antialiased">
-        {/* Hidden div for Google Translate */}
-        <div id="google_translate_element" style={{ display: 'none' }} />
-        
-        <a
-          href="#main"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:rounded-full focus:bg-violet-600 focus:px-4 focus:py-2 focus:text-white"
-        >
-          Skip to content
-        </a>
-        <div className="pointer-events-none fixed inset-0 -z-10 bg-grid opacity-40" aria-hidden />
-        <Navbar />
-        <main id="main">{children}</main>
-        <Footer />
-        <FloatingChatbot />
-        <Toaster
-          position="bottom-center"
-          toastOptions={{
-            style: {
-              background: 'rgba(12, 14, 36, 0.9)',
-              color: '#eef0f7',
-              border: '1px solid rgba(139, 92, 246, 0.3)',
-              backdropFilter: 'blur(12px)',
-              borderRadius: '12px',
-              padding: '12px 16px',
-              fontSize: '14px',
-            },
-            success: { iconTheme: { primary: '#22d3ee', secondary: '#06081a' } },
-            error: { iconTheme: { primary: '#f87171', secondary: '#06081a' } },
-          }}
-        />
-        <TermsModal />
+
+        {/* ✅ CLIENT PROVIDER WRAPPER (FIX FOR NEXT-AUTH) */}
+        <Providers>
+
+          {/* Hidden Google Translate */}
+          <div id="google_translate_element" style={{ display: 'none' }} />
+
+          {/* Skip link */}
+          <a
+            href="#main"
+            className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:rounded-full focus:bg-violet-600 focus:px-4 focus:py-2 focus:text-white"
+          >
+            Skip to content
+          </a>
+
+          <div className="pointer-events-none fixed inset-0 -z-10 bg-grid opacity-40" aria-hidden />
+
+          <Navbar />
+
+          <main id="main">{children}</main>
+
+          <Footer />
+
+          <FloatingChatbot />
+
+          <Toaster
+            position="bottom-center"
+            toastOptions={{
+              style: {
+                background: 'rgba(12, 14, 36, 0.9)',
+                color: '#eef0f7',
+                border: '1px solid rgba(139, 92, 246, 0.3)',
+                backdropFilter: 'blur(12px)',
+                borderRadius: '12px',
+                padding: '12px 16px',
+                fontSize: '14px',
+              },
+              success: {
+                iconTheme: { primary: '#22d3ee', secondary: '#06081a' },
+              },
+              error: {
+                iconTheme: { primary: '#f87171', secondary: '#06081a' },
+              },
+            }}
+          />
+
+          <TermsModal />
+
+          {/* WhatsApp Button */}
+          <a
+            href="https://wa.me/92XXXXXXXXXX?text=Hi%20I%20want%20a%20free%20AI%20demo"
+            target="_blank"
+            className="fixed bottom-5 right-5 z-[9999] flex items-center gap-2 rounded-full bg-green-500 px-4 py-3 text-sm text-white shadow-lg hover:bg-green-600"
+          >
+            WhatsApp Demo
+          </a>
+
+          {/* Floating CTA */}
+          <div className="altivora-demo-banner">
+            <div className="text-xs text-white/80 font-medium">
+              Get a Free AI Demo
+            </div>
+            <div className="text-[11px] text-white/60">
+              Built in 24 hours for your business
+            </div>
+            <a href="/demo-request">Request Now →</a>
+          </div>
+
+        </Providers>
+
       </body>
     </html>
   );

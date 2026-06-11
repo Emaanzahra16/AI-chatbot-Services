@@ -1,3 +1,5 @@
+'use client';
+
 import type { Metadata } from 'next';
 import { Section, Eyebrow, Heading, Lede } from '@/components/ui/section';
 import { Pricing } from '@/components/sections/pricing';
@@ -32,6 +34,28 @@ function Cell({ value }: { value: string | boolean }) {
 }
 
 export default function PricingPage() {
+
+  // 💰 STRIPE CHECKOUT HANDLER
+  async function buy(plan: string) {
+    try {
+      const res = await fetch('/api/stripe/checkout', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ plan }),
+      });
+
+      const data = await res.json();
+
+      if (data.url) {
+        window.location.href = data.url;
+      } else {
+        alert('Payment failed. Please try again.');
+      }
+    } catch (err) {
+      alert('Something went wrong.');
+    }
+  }
+
   return (
     <>
       <Section className="pt-40">
@@ -50,8 +74,38 @@ export default function PricingPage() {
         </ScrollReveal>
       </Section>
 
+      {/* EXISTING PRICING SECTION */}
       <Pricing showHeading={false} />
 
+      {/* 🔥 NEW CTA BUTTONS */}
+      <Section>
+        <div className="mx-auto flex max-w-3xl flex-col items-center justify-center gap-4 text-center sm:flex-row">
+
+          <button
+            onClick={() => buy('starter')}
+            className="rounded-xl bg-white/10 px-6 py-3 text-white hover:bg-white/20"
+          >
+            Buy Starter
+          </button>
+
+          <button
+            onClick={() => buy('pro')}
+            className="rounded-xl bg-violet-600 px-6 py-3 text-white hover:bg-violet-700"
+          >
+            Buy Pro (Recommended)
+          </button>
+
+          <button
+            onClick={() => buy('enterprise')}
+            className="rounded-xl bg-cyan-600 px-6 py-3 text-white hover:bg-cyan-700"
+          >
+            Contact Enterprise
+          </button>
+
+        </div>
+      </Section>
+
+      {/* TABLE (UNCHANGED) */}
       <Section>
         <ScrollReveal>
           <div className="mx-auto max-w-2xl text-center">
@@ -79,6 +133,7 @@ export default function PricingPage() {
                   </th>
                 </tr>
               </thead>
+
               <tbody>
                 {compareRows.map((row, i) => (
                   <tr

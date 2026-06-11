@@ -3,7 +3,15 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import toast from 'react-hot-toast';
-import { Mail, MapPin, MessageCircle, Twitter, Github, Linkedin, Send } from 'lucide-react';
+import {
+  Mail,
+  MapPin,
+  MessageCircle,
+  Twitter,
+  Github,
+  Linkedin,
+  Send,
+} from 'lucide-react';
 import { Section, Eyebrow, Heading, Lede } from '@/components/ui/section';
 import { Input, Textarea } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
@@ -25,6 +33,7 @@ const channels = [
 
 export default function ContactPage() {
   const [loading, setLoading] = useState(false);
+
   const [form, setForm] = useState({
     name: '',
     email: '',
@@ -35,17 +44,35 @@ export default function ContactPage() {
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setLoading(true);
+
     try {
       const res = await fetch('/api/leads', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...form, source: 'contact-page' }),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...form,
+          source: 'contact-page',
+        }),
       });
-      if (!res.ok) throw new Error('Failed to send');
-      toast.success("Thanks — we'll be in touch within 24 hours.");
-      setForm({ name: '', email: '', company: '', message: '' });
-    } catch {
-      toast.error('Something went wrong. Try again or email us directly.');
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data?.error || 'Failed to send message');
+      }
+
+      toast.success(data.message || "Thanks — we'll be in touch within 24 hours.");
+
+      setForm({
+        name: '',
+        email: '',
+        company: '',
+        message: '',
+      });
+    } catch (err: any) {
+      toast.error(err.message || 'Something went wrong. Try again.');
     } finally {
       setLoading(false);
     }
@@ -67,7 +94,7 @@ export default function ContactPage() {
       </ScrollReveal>
 
       <div className="mt-20 grid gap-10 lg:grid-cols-[1.4fr_1fr]">
-        {/* Form */}
+        {/* FORM */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -76,6 +103,7 @@ export default function ContactPage() {
           className="glass relative overflow-hidden rounded-3xl border border-white/10 p-8 sm:p-10"
         >
           <div className="pointer-events-none absolute -right-32 -top-32 h-72 w-72 rounded-full bg-violet-500/20 blur-3xl" />
+
           <form onSubmit={handleSubmit} className="relative space-y-5">
             <div className="grid gap-5 sm:grid-cols-2">
               <Input
@@ -94,12 +122,14 @@ export default function ContactPage() {
                 onChange={(e) => setForm({ ...form, email: e.target.value })}
               />
             </div>
+
             <Input
               label="Company"
               placeholder="Analytical Engines Inc."
               value={form.company}
               onChange={(e) => setForm({ ...form, company: e.target.value })}
             />
+
             <Textarea
               label="What are you building?"
               rows={5}
@@ -108,6 +138,7 @@ export default function ContactPage() {
               value={form.message}
               onChange={(e) => setForm({ ...form, message: e.target.value })}
             />
+
             <Button
               type="submit"
               size="lg"
@@ -117,14 +148,14 @@ export default function ContactPage() {
             >
               Send message
             </Button>
+
             <p className="text-center text-xs text-white/40">
-              By submitting, you agree to our terms and privacy policy. We won&apos;t spam &mdash;
-              promise.
+              By submitting, you agree to our terms and privacy policy.
             </p>
           </form>
         </motion.div>
 
-        {/* Sidebar */}
+        {/* SIDEBAR */}
         <div className="space-y-6">
           <ScrollReveal>
             <div className="glass rounded-3xl border border-white/10 p-7">
@@ -136,9 +167,10 @@ export default function ContactPage() {
                       href={c.href}
                       className="group flex items-center gap-3 rounded-xl border border-transparent px-3 py-2 transition hover:border-white/10 hover:bg-white/[0.04]"
                     >
-                      <div className="grid h-9 w-9 place-items-center rounded-lg bg-violet-500/10 text-violet-300 transition group-hover:bg-violet-500/20">
+                      <div className="grid h-9 w-9 place-items-center rounded-lg bg-violet-500/10 text-violet-300 group-hover:bg-violet-500/20">
                         <c.icon className="h-4 w-4" />
                       </div>
+
                       <div className="min-w-0">
                         <div className="text-xs uppercase tracking-wider text-white/40">
                           {c.label}
@@ -161,7 +193,8 @@ export default function ContactPage() {
                     <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-violet-300" />
                     <div className="text-sm">
                       <div className="font-medium text-white">
-                        {o.city} <span className="ml-1 text-xs text-white/40">{o.timezone}</span>
+                        {o.city}{' '}
+                        <span className="ml-1 text-xs text-white/40">{o.timezone}</span>
                       </div>
                       <div className="text-white/60">{o.address}</div>
                     </div>

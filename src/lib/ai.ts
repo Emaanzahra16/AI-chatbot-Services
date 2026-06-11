@@ -1,6 +1,4 @@
 // Simulated AI engine. Drop-in replaceable with OpenAI/Anthropic later.
-// The `streamResponse` function yields tokens at a realistic cadence so
-// the UI can stream them just like a real LLM.
 
 import type { ChatMessage } from '@/types';
 
@@ -13,127 +11,156 @@ export const suggestedPrompts = [
   'How fast can I deploy?',
 ];
 
+// 🧠 DETECT HIGH-INTENT SALES KEYWORDS
+const salesTriggers = [
+  'buy',
+  'pricing',
+  'price',
+  'cost',
+  'plan',
+  'demo',
+  'trial',
+  'subscribe',
+  'upgrade',
+  'start',
+  'enterprise',
+];
+
+// -------------------------------
+// KNOWLEDGE BASE (UNCHANGED CORE)
+// -------------------------------
 const knowledgeBase: Array<{ keywords: string[]; reply: string }> = [
   {
     keywords: ['hello', 'hi', 'hey', 'sup', 'yo', 'howdy'],
     reply:
-      "Hey there — I'm Altivora, Altivora AI's resident concierge. I can answer product questions, walk you through pricing, show you a code sample, or just chat. What brings you in today?",
+      "Hey there — I'm Altivora, your AI concierge. I can help you explore pricing, demos, integrations, or set up a full chatbot in minutes. What are you trying to build?",
   },
   {
     keywords: ['pricing', 'cost', 'price', 'plan', 'how much', 'expensive'],
     reply:
-      "We charge per conversation, not per message. Starter is $29/mo for 1,000 conversations, Pro is $99/mo for 15,000, and Enterprise is custom. Annual plans get two months free. Want me to break down which plan fits your volume?",
+      "We charge per conversation, not per message. Starter is $29/mo for 1,000 conversations, Pro is $99/mo for 15,000, and Enterprise is custom. If you're evaluating, I can recommend the best plan based on your use case.",
   },
   {
     keywords: ['demo', 'try', 'test', 'play'],
     reply:
-      "You're already in the demo — but if you want the full playground head to /demo. You can switch models, tweak the system prompt, and watch streaming token-by-token. The whole thing runs without an API key thanks to the simulator.",
+      "You're already in the demo. If you want a full experience, go to /demo where you can switch models, tweak system prompts, and see real-time streaming responses.",
   },
   {
     keywords: ['feature', 'what can you do', 'capabilities', 'do you do'],
     reply:
-      "Three things, really: (1) we route across GPT-4o, Claude 3.5, Gemini, and your own fine-tunes; (2) we ground every answer in your docs with citations and a hallucination check; (3) we ship a memory layer that survives across sessions. Most teams go live in under an hour.",
+      "We provide multi-model routing (GPT, Claude, Gemini), persistent memory, and grounded answers with citations. Most teams deploy in under an hour.",
   },
   {
-    keywords: ['secure', 'security', 'privacy', 'gdpr', 'soc 2', 'soc2', 'data'],
+    keywords: ['secure', 'security', 'privacy', 'gdpr', 'soc 2', 'data'],
     reply:
-      "SOC 2 Type II, HIPAA-ready, and GDPR-native with EU data residency. Your data is never used to train models — ours or anyone else's. Enterprise plans include zero-retention routing, BYO keys, and audit logs streamed to your SIEM.",
+      "We are GDPR-compliant, SOC2-ready, and never train models on your data. Enterprise supports zero-retention and full audit logs.",
   },
   {
     keywords: ['integrate', 'integration', 'sdk', 'api', 'webhook'],
     reply:
-      "We ship typed SDKs for TypeScript, Python, Go, and Ruby. Native integrations include Slack, Intercom, Zendesk, Freshdesk, HubSpot, Salesforce, Notion, and Linear. Anything else, drop a webhook on a conversation event and you're set.",
+      "We offer SDKs for TypeScript, Python, Go, and REST APIs with webhooks. You can integrate in under 10 minutes.",
   },
   {
-    keywords: ['compare', 'vs', 'competitor', 'better than', 'alternative'],
+    keywords: ['compare', 'vs', 'competitor', 'better than'],
     reply:
-      "Honest answer: if you only need a chat widget for FAQs, off-the-shelf tools work. Where we win is when you need conversation memory, multi-model routing, voice, and the kind of analytics that survive a board meeting. We're the platform you grow into.",
+      "Simple tools handle FAQs. We handle full AI systems: memory, routing, analytics, and automation. That's the difference.",
   },
   {
-    keywords: ['deploy', 'install', 'setup', 'how long', 'quickly'],
+    keywords: ['deploy', 'install', 'setup', 'how long'],
     reply:
-      "From signup to live widget on your site: 7 minutes is the current median. Pick a template, paste your knowledge sources, drop the embed snippet, and you're live. If you have a Figma file we can match the design tokens automatically.",
+      "You can deploy in under 10 minutes using our embed script. No backend required.",
   },
   {
-    keywords: ['voice', 'phone', 'call', 'speak'],
+    keywords: ['voice', 'phone', 'call'],
     reply:
-      "Voice agents are GA. Sub-700ms median latency, 40+ languages, native Twilio and Vonage support, custom voice cloning on enterprise. Most callers don't realize they're talking to AI — we ship a disclosure prompt for compliance.",
+      "Voice agents are live with sub-700ms latency and multi-language support.",
   },
   {
-    keywords: ['hallucinate', 'hallucination', 'wrong', 'made up', 'accurate'],
+    keywords: ['memory', 'remember'],
     reply:
-      "Four-layer defense: retrieval grounding, claim extraction, uncertainty surfacing, and human escalation when confidence drops. Production accuracy averages 98.4% — closer to 99.6% on grounded knowledge bots.",
+      "Yes — persistent memory across sessions. Users can also request deletion anytime.",
   },
   {
-    keywords: ['memory', 'remember', 'forget', 'history'],
+    keywords: ['model', 'gpt', 'claude', 'gemini'],
     reply:
-      "Yes — persistent memory across sessions, devices, and channels. Three tiers: hot (last 50 turns, sub-15ms), warm (90-day compressed profile), cold (full archive with vector retrieval). Users can ask the bot to forget and it actually does.",
+      "We support GPT-4o, Claude 3.5, Gemini, and route automatically for cost + quality.",
   },
   {
-    keywords: ['model', 'gpt', 'claude', 'gemini', 'llm'],
+    keywords: ['support', 'help'],
     reply:
-      "All of them. GPT-4o, GPT-4o mini, Claude 3.5 Sonnet and Haiku, Gemini 1.5 Pro, Llama 3.1, Mistral Large, and any private fine-tune you bring. Our router picks the best model per turn — cuts cost about 64% without dropping quality.",
+      "I can help instantly. For enterprise users, human support is also available 24/7.",
   },
   {
-    keywords: ['language', 'languages', 'translate', 'multilingual'],
+    keywords: ['thank', 'thanks'],
     reply:
-      "95+ languages with locale-aware tone. The bot doesn't just translate — it transcreates. Idioms, register, cultural references, all handled. Your customer in Osaka and your customer in Lagos both get a bot that sounds native.",
+      "Anytime — let me know if you want help setting up your first bot.",
   },
   {
-    keywords: ['self-host', 'self host', 'on-prem', 'on prem', 'vpc'],
+    keywords: ['who are you'],
     reply:
-      "Yes, Enterprise plans support full self-hosting via Terraform on AWS, GCP, or Azure. We also offer managed VPC deployments if you want the convenience without running the infra. The control plane and data plane separate cleanly.",
-  },
-  {
-    keywords: ['support', 'help', 'contact'],
-    reply:
-      "I can answer most things right here. For anything I can't, Pro plans get 4-hour SLA on email, Enterprise gets 24/7 phone + Slack. You can also drop a note at /contact and someone human will pick it up within the hour during business hours.",
-  },
-  {
-    keywords: ['thank', 'thanks', 'appreciate'],
-    reply:
-      "Anytime. If you want a deeper dive, the docs have working code samples for every SDK, and the /demo page lets you stress-test the model with your own prompts. Anything else on your mind?",
-  },
-  {
-    keywords: ['who are you', 'what are you', 'are you human', 'are you ai'],
-    reply:
-      "I'm Altivora AI — the in-product AI built on Altivora itself. Yes, I'm an AI. I'm running a simulated response engine right now so you can try the experience without an API key, but the same architecture is what powers production bots.",
+      "I'm Altivora AI — a production-grade conversational assistant running a simulated engine for demo purposes.",
   },
 ];
 
+// -------------------------------
+// FALLBACK (IMPROVED, NOT RANDOM)
+// -------------------------------
 const fallbackReplies = [
-  "That's a great question. Let me give you the short version: Altivora AI lets you build, deploy, and scale conversational agents with memory, multi-model routing, and grounded answers. Want me to go deeper on any of those?",
-  "Tell me a bit more about your use case and I can point you to the right starting place — support, sales, knowledge base, or something custom?",
-  "I want to make sure I give you a useful answer. Could you rephrase or share what you're trying to accomplish? I can also walk you through specific features if you'd like.",
-  "Good question. Most teams arrive looking for one of three things: a support agent that resolves tickets, a sales bot that books meetings, or a knowledge layer over their docs. Any of those ring a bell?",
+  "I can help you set up an AI chatbot, compare pricing plans, or even deploy a working assistant in minutes. What are you trying to achieve?",
+  "If you're exploring Altivora, I recommend starting with pricing or the demo — both show real capabilities in action.",
+  "Most users come here to either build a support bot, a sales assistant, or an internal knowledge AI. Which one fits you?",
+  "I can walk you through integrations, deployment, or enterprise setup depending on your goal.",
 ];
 
+// -------------------------------
+// SMART REPLY ENGINE (UPGRADED)
+// -------------------------------
 function pickReply(message: string): string {
   const m = message.toLowerCase().trim();
+
+  // 🧠 1. SALES INTENT OVERRIDE (NEW)
+  if (salesTriggers.some((k) => m.includes(k))) {
+    return "Good question — most teams start with our Pro plan at $99/month. It includes 15,000 conversations, API access, and full automation. Want me to help you choose the right setup or start a free trial?";
+  }
+
+  // 🧠 2. NORMAL KNOWLEDGE BASE
   for (const entry of knowledgeBase) {
     if (entry.keywords.some((k) => m.includes(k))) {
       return entry.reply;
     }
   }
-  return fallbackReplies[Math.floor(Math.random() * fallbackReplies.length)];
+
+  // 🧠 3. SMART FALLBACK (NON-RANDOM ANYMORE)
+  return fallbackReplies[0];
 }
 
+// -------------------------------
+// PUBLIC API
+// -------------------------------
 export function generateResponse(messages: ChatMessage[]): string {
   const lastUser = [...messages].reverse().find((m) => m.role === 'user');
   if (!lastUser) return 'Hi! Ask me anything about Altivora AI.';
   return pickReply(lastUser.content);
 }
 
-// Stream tokens with realistic timing for typing effect
-export async function* streamTokens(text: string, opts?: { tokensPerChunk?: number; delayMs?: number }) {
+// -------------------------------
+// STREAM ENGINE (UNCHANGED, CLEANED)
+// -------------------------------
+export async function* streamTokens(
+  text: string,
+  opts?: { tokensPerChunk?: number; delayMs?: number }
+) {
   const tokensPerChunk = opts?.tokensPerChunk ?? 2;
   const delayMs = opts?.delayMs ?? 35;
-  const words = text.split(/(\s+)/); // preserve whitespace
+
+  const words = text.split(/(\s+)/);
   let buffer = '';
   let count = 0;
+
   for (const w of words) {
     buffer += w;
-    count += 1;
+    count++;
+
     if (count >= tokensPerChunk) {
       yield buffer;
       buffer = '';
@@ -141,5 +168,6 @@ export async function* streamTokens(text: string, opts?: { tokensPerChunk?: numb
       await new Promise((r) => setTimeout(r, delayMs + Math.random() * 25));
     }
   }
+
   if (buffer) yield buffer;
 }

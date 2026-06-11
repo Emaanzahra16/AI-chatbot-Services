@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
 import toast from 'react-hot-toast';
+import { signIn } from 'next-auth/react';
 import { Sparkles, ArrowRight, Github } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
@@ -19,10 +20,28 @@ export default function LoginPage() {
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setLoading(true);
-    // Simulated auth — in production this would hit /api/auth/login
-    await new Promise((r) => setTimeout(r, 800));
-    toast.success('Welcome back');
-    router.push('/dashboard');
+
+    try {
+      const res = await signIn('credentials', {
+        email,
+        password,
+        redirect: false,
+      });
+
+      if (res?.error) {
+        toast.error('Invalid credentials');
+        setLoading(false);
+        return;
+      }
+
+      toast.success('Welcome back');
+      router.push('/dashboard');
+    } catch (err) {
+      toast.error('Something went wrong');
+      console.error(err);
+    } finally {
+      setLoading(false);
+    }
   }
 
   return (
@@ -88,7 +107,11 @@ export default function LoginPage() {
                 <Logo showText />
               </Link>
             </div>
-            <h1 className="mt-10 font-display text-4xl text-white lg:mt-0">Welcome back</h1>
+
+            <h1 className="mt-10 font-display text-4xl text-white lg:mt-0">
+              Welcome back
+            </h1>
+
             <p className="mt-2 text-white/60">
               New here?{' '}
               <Link href="/signup" className="text-violet-300 hover:text-violet-200">
@@ -96,24 +119,20 @@ export default function LoginPage() {
               </Link>
             </p>
 
+            {/* OAuth buttons (still stubbed) */}
             <div className="mt-8 space-y-3">
               <button
                 type="button"
                 className="flex w-full items-center justify-center gap-3 rounded-xl border border-white/10 bg-white/[0.04] px-4 py-3 text-sm text-white transition hover:bg-white/[0.08]"
-                onClick={() => toast('OAuth flow stub')}
+                onClick={() => toast('Google OAuth coming soon')}
               >
-                <svg className="h-4 w-4" viewBox="0 0 24 24">
-                  <path
-                    fill="#fff"
-                    d="M21.35 11.1H12v2.9h5.34c-.23 1.43-1.65 4.19-5.34 4.19-3.21 0-5.84-2.66-5.84-5.94S8.79 6.31 12 6.31c1.83 0 3.06.78 3.76 1.45l2.57-2.48C16.84 3.78 14.66 2.9 12 2.9 6.97 2.9 2.9 6.97 2.9 12s4.07 9.1 9.1 9.1c5.25 0 8.73-3.69 8.73-8.88 0-.6-.06-1.06-.15-1.52Z"
-                  />
-                </svg>
                 Continue with Google
               </button>
+
               <button
                 type="button"
                 className="flex w-full items-center justify-center gap-3 rounded-xl border border-white/10 bg-white/[0.04] px-4 py-3 text-sm text-white transition hover:bg-white/[0.08]"
-                onClick={() => toast('OAuth flow stub')}
+                onClick={() => toast('GitHub OAuth coming soon')}
               >
                 <Github className="h-4 w-4" />
                 Continue with GitHub
@@ -126,6 +145,7 @@ export default function LoginPage() {
               <div className="h-px flex-1 bg-white/10" />
             </div>
 
+            {/* LOGIN FORM (UPDATED) */}
             <form onSubmit={handleSubmit} className="space-y-4">
               <Input
                 label="Email"
@@ -135,24 +155,22 @@ export default function LoginPage() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
-              <div>
-                <Input
-                  label="Password"
-                  type="password"
-                  placeholder="••••••••"
-                  required
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                />
-                <div className="mt-2 flex justify-end">
-                  <Link
-                    href="#"
-                    className="text-xs text-violet-300 hover:text-violet-200"
-                  >
-                    Forgot password?
-                  </Link>
-                </div>
+
+              <Input
+                label="Password"
+                type="password"
+                placeholder="••••••••"
+                required
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+
+              <div className="flex justify-end">
+                <Link href="#" className="text-xs text-violet-300 hover:text-violet-200">
+                  Forgot password?
+                </Link>
               </div>
+
               <Button
                 type="submit"
                 size="lg"
